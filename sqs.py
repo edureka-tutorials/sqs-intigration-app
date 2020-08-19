@@ -1,5 +1,6 @@
 import boto3
 import os
+import requests
 
 def write_to_sqs(first_name,last_name):
     url = "http://169.254.169.254/latest/dynamic/instance-identity/document"
