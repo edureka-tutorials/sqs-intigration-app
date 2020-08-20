@@ -3,6 +3,7 @@ from flask_wtf import Form
 from wtforms import TextField
 import boto3
 import sqs
+import dynamo
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'our very hard to guess secretfir'
@@ -31,7 +32,8 @@ def sign_up():
             error = "Please supply both first and last name"
         else:
             # Form data is valid; move along
-            sqs.write_to_sqs(first_name,last_name)    
+            sqs.write_to_sqs(first_name,last_name)  
+            dynamo.write_to_dynamo(first_name,last_name)  
             return redirect(url_for('thank_you'))
 
     # Render the sign-up page

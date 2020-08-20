@@ -5,6 +5,10 @@
 2. Declare SQS queue name in environemnt variable:
 
     > export Q_URL=<SQS Queue URL>
+
+3.  Declare DynamoDB table name  in enviromment variable:
+
+    > export dynamo_table=<DynamoDB Table Name>
   
 4. Install dependencies with 
     > pip install -r requirments.txt
